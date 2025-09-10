@@ -33,7 +33,7 @@ public class SecurityConfig {
     private final UserDetailsServiceImpl userDetailsService;
     private final JwtRequestFilter jwtRequestFilter;
 
-    @Value("${FRONTEND_URL:http://localhost:5173}")
+    @Value("https://grand-duckanoo-06d17b.netlify.app/")
     private String frontendUrl;
 
     public SecurityConfig(UserDetailsServiceImpl userDetailsService, JwtRequestFilter jwtRequestFilter) {
