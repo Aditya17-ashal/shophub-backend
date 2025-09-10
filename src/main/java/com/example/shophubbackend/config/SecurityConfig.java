@@ -33,7 +33,8 @@ public class SecurityConfig {
     private final UserDetailsServiceImpl userDetailsService;
     private final JwtRequestFilter jwtRequestFilter;
 
-    @Value("https://grand-duckanoo-06d17b.netlify.app/")
+    // Corrected: Removed the trailing slash from the URL
+    @Value("https://aesthetic-unicorn-cf4edd.netlify.app")
     private String frontendUrl;
 
     public SecurityConfig(UserDetailsServiceImpl userDetailsService, JwtRequestFilter jwtRequestFilter) {
@@ -79,19 +80,19 @@ public class SecurityConfig {
                 .cors(withDefaults())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                // Rule 0: Allow public access to actuator endpoints
-                .requestMatchers("/actuator/**").permitAll()
-                // Rule 1: Allow public access for login, register, and viewing products
-                .requestMatchers("/api/auth/**").permitAll()
-                .requestMatchers(HttpMethod.GET, "/api/products/**").permitAll()
-                // Rule 2: Secure all admin dashboard endpoints
-                .requestMatchers("/api/admin/**").hasRole("ADMIN")
-                // Rule 3: Secure product modification endpoints specifically for ADMIN role
-                .requestMatchers(HttpMethod.POST, "/api/products").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.PUT, "/api/products/**").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.DELETE, "/api/products/**").hasRole("ADMIN")
-                // Rule 4: All other requests require authentication
-                .anyRequest().authenticated()
+                        // Rule 0: Allow public access to actuator endpoints
+                        .requestMatchers("/actuator/**").permitAll()
+                        // Rule 1: Allow public access for login, register, and viewing products
+                        .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/products/**").permitAll()
+                        // Rule 2: Secure all admin dashboard endpoints
+                        .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                        // Rule 3: Secure product modification endpoints specifically for ADMIN role
+                        .requestMatchers(HttpMethod.POST, "/api/products").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/api/products/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/api/products/**").hasRole("ADMIN")
+                        // Rule 4: All other requests require authentication
+                        .anyRequest().authenticated()
                 )
                 .authenticationProvider(authenticationProvider())
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
