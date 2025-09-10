@@ -1,0 +1,69 @@
+### ShopHub Backend API Tests
+### Use this file with the REST Client extension to test your APIs
+
+@baseUrl = http://localhost:8080
+@contentType = application/json
+
+### Health Check
+GET {{baseUrl}}/actuator/health
+
+### Example API calls (update these based on your actual endpoints)
+
+### Get all products
+GET {{baseUrl}}/api/products
+Accept: {{contentType}}
+
+### Get product by ID
+GET {{baseUrl}}/api/products/1
+Accept: {{contentType}}
+
+### Create a new product
+POST {{baseUrl}}/api/products
+Content-Type: {{contentType}}
+
+{
+  "name": "Sample Product",
+  "description": "This is a sample product",
+  "price": 29.99,
+  "category": "Electronics"
+}
+
+### Update a product
+PUT {{baseUrl}}/api/products/1
+Content-Type: {{contentType}}
+
+{
+  "name": "Updated Product",
+  "description": "This is an updated product",
+  "price": 39.99,
+  "category": "Electronics"
+}
+
+### Delete a product
+DELETE {{baseUrl}}/api/products/1
+
+### Authentication endpoints (if you have them)
+
+### Register user
+POST {{baseUrl}}/api/auth/register
+Content-Type: {{contentType}}
+
+{
+  "username": "testuser",
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+### Login user
+POST {{baseUrl}}/api/auth/login
+Content-Type: {{contentType}}
+
+{
+  "username": "testuser",
+  "password": "password123"
+}
+
+### Protected endpoint (add Authorization header after login)
+GET {{baseUrl}}/api/user/profile
+Authorization: Bearer YOUR_JWT_TOKEN_HERE
+Accept: {{contentType}}

@@ -1,0 +1,37 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ShophubbackendApplication",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.shophubbackend.ShophubbackendApplication",
+            "projectName": "shophubbackend",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": "-Dspring.profiles.active=dev"
+        },
+        {
+            "type": "java",
+            "name": "Debug Spring Boot App",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.shophubbackend.ShophubbackendApplication",
+            "projectName": "shophubbackend",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": "-Dspring.profiles.active=dev -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005"
+        },
+        {
+            "type": "java",
+            "name": "Run Tests",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "",
+            "projectName": "shophubbackend",
+            "args": "",
+            "vmArgs": "-Dspring.profiles.active=test"
+        }
+    ]
+}

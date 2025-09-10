@@ -1,0 +1,89 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Maven: Clean",
+            "type": "shell",
+            "command": "./mvnw",
+            "args": ["clean"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Maven: Compile",
+            "type": "shell",
+            "command": "./mvnw",
+            "args": ["compile"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": ["$maven-compiler-java"]
+        },
+        {
+            "label": "Maven: Test",
+            "type": "shell",
+            "command": "./mvnw",
+            "args": ["test"],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": ["$maven-compiler-java"]
+        },
+        {
+            "label": "Maven: Package",
+            "type": "shell",
+            "command": "./mvnw",
+            "args": ["package"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": ["$maven-compiler-java"]
+        },
+        {
+            "label": "Spring Boot: Run",
+            "type": "shell",
+            "command": "./mvnw",
+            "args": ["spring-boot:run"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Spring Boot: Run with Profile",
+            "type": "shell",
+            "command": "./mvnw",
+            "args": ["spring-boot:run", "-Dspring-boot.run.profiles=dev"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        }
+    ]
+}
